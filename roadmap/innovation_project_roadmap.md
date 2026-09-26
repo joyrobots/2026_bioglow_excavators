@@ -14,6 +14,31 @@ This roadmap aligns the Innovation Project with the five core criteria of the of
 
 ---
 
+## Saturday Timeline to the December 13 Deadline
+
+Week 3 is Saturday, September 26. Weeks 1–2 are already past, so their rows below are a record of the intended focus, not a claim that every deliverable was completed. The repository contains the Week 1 homework sheet and the first two session slide decks, but no completed scouting sheets, signed charter, or Week 2 homework. Confirm any work kept outside the repository at the Week 3 check-in, and carry forward only unfinished items. The original five Innovation Project milestones still run through Week 12. Weeks 13–14 provide time to rehearse and prepare for December 13. **Communicate is a project milestone** about sharing the solution and using feedback; practice for the two five-minute explanations is a separate activity throughout the schedule.
+
+| Week | Saturday | Innovation Project milestone | Main work | Robot game and presentation practice |
+| --- | --- | --- | --- | --- |
+| 1 | Sep 12 | 1 — Identify | Past focus: ecological orientation and wildlife scouting; a blank homework sheet is saved, but completed work is not documented here. | Earlier robot game work and speaking practice are not documented here. |
+| 2 | Sep 19 | 1 — Identify | Past focus: selecting the target problem and reviewing mitigation; session slides exist, but decisions and deliverables need confirmation. | Earlier robot game work and speaking practice are not documented here. |
+| 3 | Sep 26 | 1 — Identify | Confirm what Weeks 1–2 produced, fill any essential gaps, compare existing monitoring methods, and prepare expert questions for mentor review and sending. | Confirm the current robot game status; assign speakers and try a 1–2 minute explanation from each group. |
+| 4 | Oct 3 | 2 — Design | Choose the solution and document engineering constraints. | Develop robot strategy; outline both five-minute explanations. |
+| 5 | Oct 10 | 2 — Design | Finalize hardware, communication, and sandbox plans. | Build robot attachments; practice 2–3 minutes per explanation. |
+| 6 | Oct 17 | 3 — Create | Build the physical sandbox and gather field observations if feasible. | Test priority robot missions; explain the models aloud. |
+| 7 | Oct 24 | 3 — Create | Install sensors and demonstrate environmental readings. | Improve robot runs; practice about four minutes per explanation. |
+| 8 | Oct 31 | 3 — Create | Demonstrate directional crossing and turn-back detection. | Attempt the first timed five-minute version of each explanation. |
+| 9 | Nov 7 | 4 — Iterate | Test substrate noise and document design changes. | Measure robot run consistency; time both explanations and note gaps. |
+| 10 | Nov 14 | 4 — Iterate | Finish major improvements and collect test results. | Run both full five-minute explanations, followed by questions. |
+| 11 | Nov 21 | 5 — Communicate | Share the solution with others and collect expert or community feedback. | Give a full timed run to an outside audience. |
+| 12 | Nov 28 | 5 — Communicate | Show how feedback informed the solution; finalize evidence and display materials. | Hold a mock judging session with both explanations and questions. |
+| 13 | Dec 5 | Five milestones complete | Fix only important issues found in the mock session; prepare backups. | Hold two timed dress rehearsals with all speakers and the robot. |
+| 14 | Dec 12 | Five milestones complete | Check equipment, materials, roles, and transport. | Do one calm final run; avoid major changes before December 13. |
+
+Reserve roughly 10 minutes of each Saturday meeting for speaking practice from Week 3, increasing to 20–30 minutes from Week 9. Practice the **five-minute robot game explanation** and **five-minute Innovation Project explanation** separately, then rehearse them together with questions and setup time.
+
+---
+
 ## Weekly Breakdown & Execution Plan
 
 ### 🟢 Milestone 1: Problem Identification & Research into Existing Solutions (Identify) — 3 Weeks
@@ -142,7 +167,7 @@ This roadmap aligns the Innovation Project with the five core criteria of the of
 
 ---
 
-### 🟣 Milestone 5: Expert Feedback Loop & Presentation Pitch (Communicate) — 2 Weeks
+### 🟣 Milestone 5: Expert Feedback Loop & Sharing the Solution (Communicate) — 2 Weeks
 
 * **FLL Rubric Alignment:** **Communicate & Core Values** (Sharing with diverse stakeholders, integrating professional expert critique, delivering an engaging, confident presentation with full team participation)
 
@@ -157,11 +182,11 @@ This roadmap aligns the Innovation Project with the five core criteria of the of
 
 
 
-* **Week 12: 5-Minute Pitch Rehearsal & Defense Finalization**
-* **Instruction & Hands-on:** Rehearse the 5-minute unscripted presentation utilizing the **"Because (harsh real-world constraints) ➔ But (conventional tech fails) ➔ So (engineered closed-loop solution)"** narrative framework; conduct high-pressure mock defense Q&A sessions covering budget, substrate false alarms, wireless shielding, and animal stress.
+* **Week 12: Feedback Integration & Communication Evidence**
+* **Instruction & Hands-on:** Show how expert and community feedback informed the solution; explain the problem, design decisions, prototype, tests, and improvements to an outside audience. Continue the separate five-minute presentation practice described in the Saturday timeline, including questions about budget, substrate false alarms, wireless shielding, and animal stress.
 
 
-* **Deliverables:** Complete the tri-fold presentation showboard; lock in speaking roles across all team members and execute full-dress dry runs with live hardware demonstrations.
+* **Deliverables:** Complete the tri-fold presentation showboard and a concise record of who saw the solution, what feedback they gave, and what the team changed. Complete a mock judging session with all speaking roles and live demonstrations.
 
 
 
