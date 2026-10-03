@@ -39,6 +39,63 @@ Reserve roughly 10 minutes of each Saturday meeting for speaking practice from W
 
 ---
 
+## Progress Log: What We've Done (Presentation Source Material)
+
+A running summary of what the team has actually done, grouped by the five rubric parts. Add to it after every Saturday. When it's time to write the five-minute Innovation Project explanation, each part below becomes one section of the talk. Items marked *(planned)* haven't happened yet; update them after the session.
+
+### 🟢 Part 1: Identify (the problem and research)
+
+* **Week 1 (Sep 12):** Each student researched one vulnerable or endangered Ontario animal, its main danger and when it is active, and sketched a first sensor idea using an IF/THEN "smart rule."
+* **Week 2 (Sep 19):** The team picked the **Jefferson Salamander at Stouffville Road, Richmond Hill**: endangered in Ontario, and crossing the road between forest and ponds.
+* **Week 3 (Sep 26):** Compared four tracking ideas in the "Wildlife Tracker Challenge" decision matrix. Each idea was rated YES / MAYBE / NO on **Path** (crossed or turned back?), **Weather** (dark, rain, and mud?), and **No touch** (nothing on the animal?):
+  * Person watches: can't work in dark, rain, and mud.
+  * Trail camera: MAYBE on path and on weather.
+  * Radio tag: puts something on the animal.
+  * **Overhead sensors: the best solution.** YES on path and no touch; weather is a MAYBE that needs testing.
+* **Expert research (TRCA reply):**
+  * Jefferson Salamanders are endangered and need **both forests and ponds** to complete their life cycle, so they must cross Stouffville Road.
+  * TRCA has studied salamanders here **since 2002**.
+  * They move slowly and cross on **cool, rainy nights**, which makes them vulnerable to cars.
+  * **No exact death count exists**, and TRCA won't guess. Road surveys confirm salamanders are killed here, and TRCA chose this stretch of road as a key place to reduce the risk.
+  * ⚠️ Stop using the "90% roadkill" figure. TRCA does not support it.
+  * Existing solutions are **tunnels (installed 2025)**, guide fencing, eDNA habitat surveys, forest restoration, possible new breeding ponds, and seasonal road closures with York Region.
+  * **The gap our project fills:** nobody knows yet how many salamanders use the tunnels or whether the tunnels work for them. TRCA is "still finding out" with cameras.
+
+### 🔵 Part 2: Design (our solution and its constraints)
+
+* **Week 3 (Sep 26):** Introduced the **M5Stack**. For homework, each student designed where an M5Stack and sensor would go in the tunnel to spot salamanders.
+* **Week 4 (Oct 3) *(planned)*:**
+  * Learned our two sensors:
+    * The **ToF laser distance sensor** spots a salamander from the ceiling without touching it, and works in the dark.
+    * The **ENV sensor** reads temperature, humidity, and pressure so the device only wakes up on rainy nights warmer than 5 °C.
+  * Hands-on: programmed the M5Stack to show "SALAMANDER!" when something passes under the ToF sensor.
+  * "Uh-oh" tests: found that water, shiny surfaces, and gravel can confuse the sensor.
+  * "Tunnel Rules" constraints:
+    * No drilling into the culvert.
+    * Raccoons will tamper with it.
+    * It's always wet and humid.
+    * There's no phone signal underground.
+    * **New rule from the expert reply:** keep the tunnel dark, cool, and damp, so the device must not add light or scare the salamanders.
+  * Team vote on the mounting design. We record what we chose and **what we gave up** (the trade-off).
+
+### 🟡 Part 3: Create (the prototype)
+
+* *Nothing yet. Starts Week 6 (sandbox build).*
+
+### 🔴 Part 4: Iterate (testing and improving)
+
+* *Nothing formal yet. Starts Week 9.*
+* Early evidence for later: the Week 4 "Uh-oh" tests are our first record of sensor failures to fix.
+* TRCA is following the same cycle: "build, test, learn, and improve."
+
+### 🟣 Part 5: Communicate (sharing and feedback)
+
+* **Week 3–4:** Wrote and sent our first email to TRCA and **received a written reply** to all six questions.
+* **Week 4 (Oct 3) *(planned)*:** Reviewed the reply as a team. We sorted the answers into "supports our idea," "changes our plan," and "new questions," then wrote a thank-you note and picked a follow-up question.
+* **Next step:** share our *solution* (not just questions) with TRCA and ask for feedback on it. That is what the Communicate rubric scores most.
+
+---
+
 ## Weekly Breakdown & Execution Plan
 
 ### 🟢 Milestone 1: Problem Identification & Research into Existing Solutions (Identify) — 3 Weeks
