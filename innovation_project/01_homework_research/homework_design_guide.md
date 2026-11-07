@@ -11,7 +11,7 @@ Every weekly homework sheet follows this guide so the kids see the same layout e
 | Per-kid variants (only when needed) | `homework_weekNN_<firstname>_<topic>.pdf` (lowercase, as in week 8) |
 | In-class worksheets | `innovation_project/01_homework_research/In_class_worksheets/` |
 
-Always commit both the `.html` and the `.pdf`. Never push without asking Kirby.
+Commit only the `.pdf`. The `.html` source stays local (do not `git add` it). Never push without asking Kirby.
 
 ## 2. Who it is for
 
