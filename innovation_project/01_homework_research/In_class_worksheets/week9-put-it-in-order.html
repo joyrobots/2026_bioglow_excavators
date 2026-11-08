@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Put It in Order</title>
+<style>
+  :root { --red:#d01012; --blue:#0055bf; --yellow:#ffd500; --green:#237841; --orange:#f27c21;
+          --ink:#1a1a1a; --grey:#555; --paper:#ffffff; --tint:#f3f6fb; --line:#d6dbe3; --ok:#e2f3e7; --bad:#fde8e8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; background:var(--paper); color:var(--ink); font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
+  header { background:var(--red); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:18px; }
+  .brand { font-size:12px; letter-spacing:.14em; text-transform:uppercase; opacity:.9; }
+  header h1 { margin:0; font-size:26px; }
+  .pill { position:relative; background:var(--yellow); color:var(--ink); font-weight:700; font-size:13px; padding:10px 16px; border-radius:7px; margin-top:8px; }
+  .pill::before { content:""; position:absolute; top:-8px; left:12px; width:14px; height:8px; background:var(--yellow); border-radius:3px 3px 0 0;
+                  box-shadow:24px 0 0 var(--yellow), 48px 0 0 var(--yellow); }
+  main { max-width:1100px; margin:0 auto; padding:20px 16px 40px; }
+  .intro { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .intro p { margin:0; font-size:18px; }
+  .intro b { color:var(--blue); }
+  .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  button { font:inherit; font-weight:700; font-size:16px; padding:10px 18px; border-radius:10px; border:2px solid transparent; cursor:pointer; color:#fff; background:var(--blue); }
+  button.secondary { background:#fff; color:var(--blue); border-color:var(--blue); }
+  button.reveal { background:var(--green); }
+  button:active { transform:translateY(1px); }
+  .status { min-height:30px; font-size:20px; font-weight:700; margin:6px 0 10px; }
+  .status.good { color:var(--green); } .status.meh { color:var(--orange); }
+  ol.board { list-style:none; margin:0 auto; padding:0; display:grid; grid-template-columns:1fr; gap:10px; max-width:900px; }
+  @media (max-width:760px){ header h1 { font-size:20px; } }
+  .card { position:relative; display:grid; grid-template-columns:44px 1fr 40px; align-items:center; gap:10px; min-height:70px;
+          background:var(--tint); border:2px solid var(--line); border-radius:14px; padding:10px 12px; touch-action:none; user-select:none; -webkit-user-select:none; cursor:grab; }
+  .card.dragging { position:fixed; z-index:50; width:var(--w); box-shadow:0 14px 30px rgba(0,0,0,.25); transform:rotate(-1deg); cursor:grabbing; background:#fff; }
+  .card.placeholder { background:transparent; border:2px dashed var(--blue); }
+  .card.placeholder > * { visibility:hidden; }
+  .pos { width:44px; height:44px; border-radius:10px; background:var(--blue); color:#fff; font-weight:800; font-size:20px; display:grid; place-items:center; }
+  .text { font-size:20px; line-height:1.3; }
+  .role { display:none; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--grey); margin-top:4px; }
+  .card.ok { background:var(--ok); border-color:var(--green); } .card.ok .pos { background:var(--green); }
+  .card.bad { background:var(--bad); border-color:var(--red); } .card.bad .pos { background:var(--red); }
+  .card.show .role { display:block; }
+  .arrows { display:flex; flex-direction:column; gap:4px; }
+  .arrows button { padding:2px 8px; font-size:14px; line-height:1.2; border-radius:6px; background:#fff; color:var(--blue); border:1.5px solid var(--blue); }
+  .hint { margin-top:16px; color:var(--grey); font-size:15px; }
+  .panel.results { margin-top:16px; background:#fff; border:2px solid var(--line); border-radius:16px; padding:18px 20px; }
+  .results h2 { margin:0 0 6px; font-size:22px; color:var(--blue); }
+  .score { margin:0 0 14px; font-size:19px; font-weight:700; }
+  ol.answer { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:8px; }
+  .answer li { display:grid; grid-template-columns:44px 1fr; align-items:center; gap:10px; border-radius:12px; padding:10px 12px; background:var(--tint); border:2px solid var(--line); }
+  .answer li.hit { background:var(--ok); border-color:var(--green); } .answer li.miss { background:var(--bad); border-color:var(--red); }
+  .answer .step { width:44px; height:44px; border-radius:10px; background:var(--blue); color:#fff; font-weight:800; font-size:20px; display:grid; place-items:center; }
+  .answer li.hit .step { background:var(--green); } .answer li.miss .step { background:var(--red); }
+  .answer .sent { font-size:19px; line-height:1.3; }
+  .answer .r { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--grey); margin-top:3px; }
+  .answer .mark { font-size:14px; color:var(--grey); margin-top:3px; display:flex; align-items:center; gap:6px; }
+  .debrief { margin:14px 0 0; font-size:16px; color:var(--grey); }
+  .tabs { display:flex; gap:6px; margin:4px 0 0; border-bottom:3px solid var(--line); }
+  .tab { background:var(--tint); color:var(--grey); border:2px solid var(--line); border-bottom:none; border-radius:12px 12px 0 0; padding:10px 18px; font-size:17px; margin-bottom:-3px; }
+  .tab.active { background:#fff; color:var(--blue); border-color:var(--blue); border-bottom:3px solid #fff; }
+  .tab.locked { opacity:.55; cursor:not-allowed; }
+  .panel { padding-top:16px; }
+  .handoff { margin-top:16px; background:#eef4ff; border:2px solid var(--blue); border-left-width:10px; border-radius:12px; padding:14px 18px; }
+  .handoff h3 { margin:0 0 6px; font-size:18px; color:var(--blue); }
+  .handoff ol { margin:0; padding-left:22px; font-size:17px; line-height:1.5; }
+  .handoff .fill { display:inline-block; min-width:110px; border-bottom:2px solid var(--ink); }
+  .panel.speech { margin-top:16px; background:#fffbe6; border:2px solid var(--yellow); border-radius:16px; padding:18px 22px; }
+  .speech h2 { margin:0 0 8px; font-size:20px; color:var(--grey); }
+  .speech p { margin:0; font-size:26px; line-height:1.55; }
+  .speech .n { font-size:14px; font-weight:800; color:var(--blue); vertical-align:super; margin-right:2px; }
+  @media (max-width:760px){ .speech p { font-size:21px; } }
+</style>
+</head>
+<body>
+<header>
+  <div><div class="brand">JoyRobots Excavators · Presentation Skills</div><h1>Put It in Order!</h1></div>
+  <div class="pill">ACTIVITY</div>
+</header>
+<main>
+  <div class="intro">
+    <p>Drag the cards into the right order, then press <b>Check</b>. Bonus: find the <b>hook</b> and the <b>full-circle ending</b>.</p>
+    <div class="controls">
+      <button class="secondary" id="shuffle">Shuffle</button>
+      <button id="check">Check</button>
+      <button class="reveal" id="reveal">Reveal results</button>
+    </div>
+  </div>
+  <div class="status" id="status"></div>
+  <nav class="tabs" role="tablist">
+    <button type="button" class="tab active" data-tab="cards" role="tab">Cards</button>
+    <button type="button" class="tab" data-tab="read" role="tab">Read</button>
+    <button type="button" class="tab locked" data-tab="answer" role="tab" id="answerTab">Answer key (locked)</button>
+  </nav>
+  <section class="panel" id="panel-cards">
+    <ol class="board" id="board"></ol>
+    <p class="hint">Tip: you can also use the ▲ ▼ buttons on each card. The Answer key tab unlocks when you press Reveal results.</p>
+  </section>
+  <section class="panel speech" id="panel-read" hidden>
+    <h2>Read it out loud, in your order:</h2>
+    <p id="speechText"></p>
+    <aside class="handoff">
+      <h3>Hand-off: the last part is a hand-off, not just a thank-you!</h3>
+      <ol>
+        <li><b>Recap:</b> "So, our robot keeps beaches clean."</li>
+        <li><b>Ask:</b> "But how does it work on the robot game table?"</li>
+        <li><b>Introduce:</b> "Next, <span class="fill">&nbsp;</span> will show you <span class="fill">&nbsp;</span>!"</li>
+      </ol>
+    </aside>
+    <p class="hint">Move cards on the Cards tab and come back. The text follows your order.</p>
+  </section>
+  <section class="panel results" id="panel-answer" hidden>
+    <h2>Answer key</h2>
+    <p class="score" id="score"></p>
+    <ol class="answer" id="answer"></ol>
+    <aside class="handoff">
+      <h3>Hand-off: the last part is a hand-off, not just a thank-you!</h3>
+      <ol>
+        <li><b>Recap:</b> "So, our robot keeps beaches clean."</li>
+        <li><b>Ask:</b> "But how does it work on the robot game table?"</li>
+        <li><b>Introduce:</b> "Next, <span class="fill">&nbsp;</span> will show you <span class="fill">&nbsp;</span>!"</li>
+      </ol>
+    </aside>
+    <p class="debrief"><b>Debrief:</b> Which card is the hook? Which card goes back to it? Which card is the hand-off? Go back to the Cards tab to see your order marked. Now write your own 8 cards for our real project!</p>
+  </section>
+</main>
+<script>
+(() => {
+  const CARDS = {
+    A: { text: 'Now it cleans a beach in 10 minutes!', role: 'Impact' },
+    B: { text: 'Have you ever seen a beach full of trash?', role: 'Hook' },
+    C: { text: 'Thank you! Any questions?', role: 'Closing / Hand-off' },
+    D: { text: 'We built it with LEGO motors and a color sensor.', role: 'Build' },
+    E: { text: 'Trash hurts animals and makes beaches unsafe.', role: 'Problem' },
+    F: { text: 'Next time you see a clean beach, think of our robot!', role: 'Full circle' },
+    G: { text: 'Our first try dropped trash, so we added claws.', role: 'Test' },
+    H: { text: 'We invented a robot that finds and picks up trash.', role: 'Idea' }
+  };
+  const ANSWER = ['B','E','H','D','G','A','F','C'];
+  const board = document.getElementById('board');
+  const status = document.getElementById('status');
+  let order = [], solved = false;
+
+  function shuffle(a){ a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+  function render(){
+    board.innerHTML = '';
+    order.forEach((id, i) => {
+      const c = CARDS[id];
+      const li = document.createElement('li'); li.className = 'card'; li.dataset.id = id;
+      li.innerHTML = `<div class="pos">${i+1}</div>
+        <div><div class="text">${c.text}</div><div class="role">${c.role}</div></div>
+        <div class="arrows"><button type="button" data-move="-1" aria-label="Move up">▲</button><button type="button" data-move="1" aria-label="Move down">▼</button></div>`;
+      board.appendChild(li);
+    });
+    renderSpeech();
+  }
+  function renderSpeech(){
+    const sp = document.getElementById('panel-read'); if (sp.hidden) return;
+    document.getElementById('speechText').innerHTML = order.map((id,i)=>`<span class="n">${i+1}</span>${CARDS[id].text}`).join(' ');
+  }
+  function reset(){ order = shuffle(Object.keys(CARDS)); if (order.join('')===ANSWER.join('')) order.reverse(); solved=false; status.textContent=''; status.className='status'; lockAnswer(); showTab('cards'); render(); }
+
+  function check(revealAll){
+    const cards = [...board.children]; let right = 0;
+    cards.forEach((li, i) => {
+      const ok = li.dataset.id === ANSWER[i]; right += ok;
+      li.classList.toggle('ok', ok); li.classList.toggle('bad', !ok); li.classList.toggle('show', ok || revealAll);
+      const role = li.querySelector('.role'); const want = ANSWER.indexOf(li.dataset.id) + 1;
+      role.textContent = CARDS[li.dataset.id].role + (revealAll && !ok ? ` · goes in spot ${want}` : '');
+    });
+    if (right === 8){ solved = true; showResults(cards.map(c=>c.dataset.id), 8); status.className='status good'; status.textContent = 'Perfect! All 8 in order. Where is the hook? Which card goes back to it?'; }
+    else { status.className='status meh'; status.textContent = `${right} of 8 in the right place. Keep going!`; }
+  }
+  function showResults(teamOrder, right){
+    const ans = document.getElementById('answer'), sc = document.getElementById('score');
+    ans.innerHTML = '';
+    ANSWER.forEach((id, i) => {
+      const hit = teamOrder[i] === id; const c = CARDS[id];
+      const li = document.createElement('li'); li.className = hit ? 'hit' : 'miss';
+      const had = teamOrder[i] ? CARDS[teamOrder[i]] : null;
+      li.innerHTML = `<div class="step">${i+1}</div>
+        <div><div class="sent">${c.text}</div><div class="r">${c.role}</div>
+        ${hit ? '<div class="mark">✓ you had it</div>' : (had ? `<div class="mark">you had: "${had.text}"</div>` : '')}</div>`;
+      ans.appendChild(li);
+    });
+    sc.textContent = `${right} of 8 in the right place` + (right===8 ? ' · Perfect!' : '');
+    unlockAnswer(); showTab('answer');
+  }
+  function reveal(){
+    // Keep the team's order on the board; just mark it and show the answer key below.
+    const teamOrder = order.slice(); let right = 0; teamOrder.forEach((id,i)=>{ if (id===ANSWER[i]) right++; });
+    solved = true; check(true);
+    if (right < 8){ status.className='status good'; status.textContent = `Revealed: ${right} of 8 right. Answer: Hook, Problem, Idea, Build, Test, Impact, Full circle, Hand-off.`; }
+    showResults(teamOrder, right);
+  }
+
+  // arrows
+  board.addEventListener('click', e => {
+    const b = e.target.closest('button[data-move]'); if (!b) return;
+    const li = b.closest('.card'); const i = order.indexOf(li.dataset.id); const j = i + Number(b.dataset.move);
+    if (j < 0 || j >= order.length) return;
+    [order[i], order[j]] = [order[j], order[i]]; render();
+  });
+
+  // pointer drag (mouse + touch)
+  let drag = null;
+  board.addEventListener('pointerdown', e => {
+    if (e.button !== 0 || e.target.closest('button')) return;
+    const li = e.target.closest('.card'); if (!li) return;
+    const r = li.getBoundingClientRect();
+    const ph = li.cloneNode(true); ph.className = 'card placeholder';
+    li.style.setProperty('--w', r.width+'px'); li.style.left = r.left+'px'; li.style.top = r.top+'px';
+    li.classList.add('dragging'); board.insertBefore(ph, li);
+    drag = { li, ph, dx: e.clientX - r.left, dy: e.clientY - r.top };
+    li.setPointerCapture(e.pointerId); e.preventDefault();
+  });
+  board.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const { li, ph } = drag; li.style.left = (e.clientX - drag.dx)+'px'; li.style.top = (e.clientY - drag.dy)+'px';
+    const others = [...board.children].filter(c => c !== li && c !== ph);
+    const next = others.find(c => { const r = c.getBoundingClientRect(); return e.clientY < r.top + r.height/2; });
+    if (next) { if (ph.nextSibling !== next && ph !== next) board.insertBefore(ph, next); }
+    else if (board.lastElementChild !== ph) board.appendChild(ph);
+  });
+  function endDrag(e){
+    if (!drag) return; const { li, ph } = drag;
+    li.classList.remove('dragging'); li.style.cssText = ''; board.insertBefore(li, ph); ph.remove(); drag = null;
+    order = [...board.children].map(c => c.dataset.id); render();
+  }
+  board.addEventListener('pointerup', endDrag); board.addEventListener('pointercancel', endDrag);
+
+  // tabs
+  let unlocked = false;
+  function showTab(name){
+    if (name === 'answer' && !unlocked) { status.className='status meh'; status.textContent='Press Reveal results to unlock the Answer key.'; return; }
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== 'panel-' + name);
+    if (name === 'read') renderSpeech();
+  }
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
+  function unlockAnswer(){ unlocked = true; const t = document.getElementById('answerTab'); t.classList.remove('locked'); t.textContent = 'Answer key'; }
+  function lockAnswer(){ unlocked = false; const t = document.getElementById('answerTab'); t.classList.add('locked'); t.textContent = 'Answer key (locked)'; }
+
+  document.getElementById('shuffle').addEventListener('click', reset);
+  document.getElementById('check').addEventListener('click', () => check(false));
+  document.getElementById('reveal').addEventListener('click', reveal);
+  reset();
+})();
+</script>
+</body>
+</html>
