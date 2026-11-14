@@ -1,24 +1,21 @@
 # Lucas · Design
 
-Speaker 2 of 6 · Not written yet
-
-## My script
-
 **Hook**
 
-**Say, then show**
+What if we could use a sensor to count how many salamanders cross each year?
+
+**Body**
+
+We learned that TRCA's cameras can't always tell if a salamander turns back.
+
+We measured the real tunnel and made a sketch of it.
+
+The real tunnel is wet and has dirt in it, so our sensors have to stay dry.
+
+We decided to use an M5Stack and a ToF distance sensor looking down to track salamanders passing through.
+
+We put the sensor on top because if it is on the ground, the salamander would get scared and run away.
 
 **Hand-off**
 
-Hands off to Noah (Create).
-
-## Show
-
-To be decided.
-
-## Practice
-
-- Read it out loud 3 times.
-- Time it: 45 to 60 seconds.
-- Pause for 1 to 2 seconds after the hook.
-- Look at the next speaker when you say their name.
+Next, Victor will talk about how we created it.

@@ -11,6 +11,8 @@ Every weekly homework sheet follows this guide so the kids see the same layout e
 | Per-kid variants (only when needed) | `homework_weekNN_<firstname>_<topic>.pdf` (lowercase, as in week 8) |
 | In-class worksheets | `innovation_project/01_homework_research/In_class_worksheets/` |
 
+In the Excavators repo, from week 10 the `.html` sources live in `innovation_project/01_homework/html_source/` so the homework folder holds only the printable PDFs. Render each PDF into the parent folder (`--print-to-pdf="$PWD/../homework_weekNN.pdf"` when run from `html_source/`).
+
 Commit only the `.pdf`. The `.html` source stays local (do not `git add` it). Never push without asking Kirby.
 
 ## 2. Who it is for

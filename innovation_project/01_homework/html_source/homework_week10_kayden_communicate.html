@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Week 10 Homework: Practice My Script (Kayden)</title>
+<style>
+  @page { size: Letter; margin: 10mm 15mm 8mm 15mm; }
+  :root { --ink:#1a1a1a; --accent:#1f6f3f; --soft:#e8f3ec; --line:#9aa3ab; --muted:#555; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 11pt; line-height: 1.3; margin: 0; }
+  .brand { font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  h1 { font-size: 20pt; margin: 0 0 2px 0; color: var(--accent); }
+  .sub { font-size: 11pt; color: var(--muted); margin: 0 0 5px 0; }
+  .sub b { color: var(--accent); }
+  .meta { display: flex; gap: 18px; margin: 4px 0 8px 0; font-weight: 600; }
+  .meta span { flex: 1; border-bottom: 1.5px solid var(--ink); padding-bottom: 2px; }
+  .meta i { flex: 1; }
+  .intro { background: var(--soft); border-left: 4px solid var(--accent); padding: 6px 10px; font-size: 10.5pt; margin-bottom: 8px; }
+  .intro b { color: var(--accent); }
+  h2 { font-size: 13pt; margin: 7px 0 2px 0; padding-bottom: 2px; border-bottom: 2px solid var(--accent); color: var(--accent); }
+  h2 small { font-weight: 400; color: var(--muted); font-size: 9.5pt; margin-left: 8px; }
+  .q { margin: 12px 0 0 0; }
+  .q .t { font-weight: 700; }
+  .hint { font-size: 9.5pt; color: var(--muted); font-style: italic; margin: 1px 0 3px 0; }
+  .lines.big .l { border-bottom: 1px solid var(--line); height: 40px; }
+  .row { display: flex; align-items: flex-end; gap: 6px; height: 34px; margin-top: 2px; }
+  .row b { color: var(--accent); }
+  .row .lbl { margin-left: 8px; }
+  .blank { display: inline-block; border-bottom: 1px solid var(--ink); height: 18px; }
+  .blank.s { width: 60px; }
+  .blank.grow { flex: 1; }
+  .counts { display: flex; gap: 14px; align-items: center; margin-top: 6px; }
+  .numbox { display: inline-block; width: 44px; height: 32px; border: 1.5px solid var(--ink); border-radius: 4px; }
+  .steps .l { display: flex; align-items: flex-end; height: 50px; border-bottom: 1px solid var(--line); }
+  .steps .l b.dot { display: flex; align-items: flex-end; width: 26px; height: 100%; }
+  .steps .l b.dot i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); margin: 0 0 5px 2px; }
+  .boxes { margin: 5px 0 0 0; line-height: 1.8; display:flex; flex-wrap:wrap; gap:0 22px; }
+  .boxes label { white-space: nowrap; }
+  .cb { display: inline-block; width: 12px; height: 12px; border: 1.5px solid var(--ink); border-radius: 2px; vertical-align: -1px; margin-right: 4px; }
+  .script { border: 1.5px solid var(--line); border-radius: 6px; padding: 8px 16px 14px 16px; margin-top: 6px; }
+  .script .who { font-weight: 700; color: var(--accent); }
+  .script .who small { font-weight: 400; color: var(--muted); font-size: 9.5pt; margin-left: 6px; }
+  .script .lbl { font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 5px 0 0 0; }
+  .script p { margin: 14px 0 0 0; font-size: 15pt; line-height: 1.45; }
+  .script p:first-child { margin-top: 2px; }
+  .eg { font-size: 10pt; color: var(--muted); margin: 3px 0 0 0; }
+  .sketch { border: 1.5px dashed var(--line); border-radius: 6px; height: 470px; margin-top: 4px; }
+  .ideas { margin: 4px 0 0 0; padding-left: 20px; columns: 2; column-gap: 30px; }
+  .ideas li { margin: 0; padding: 2px 0; break-inside: avoid; }
+  .break { page-break-before: always; margin-top: 0; }
+</style>
+</head>
+<body>
+
+<div class="brand">JoyRobots Excavators &nbsp;|&nbsp; Team #65536 &nbsp;|&nbsp; Week 10 Homework</div>
+<h1>My Script - Kayden</h1>
+<p class="sub">Innovation Project &nbsp;&middot;&nbsp; My part: <b>Communicate</b></p>
+
+<div class="meta"><span>Date: </span><i></i></div>
+
+<div class="intro">
+  This is <b>version 1</b> of our script. We will keep making it better as we go, but it is important to
+  <b>practice now</b> so you know your part well.
+</div>
+
+<h2>Part 1 &mdash; Practice My Part</h2>
+
+<div class="script">
+  <p>We shared our project with two experts at TRCA, Dr. Jonathan Ruppert and Dr. David Lawrie.</p>
+  <p>We sent them letters with our questions, then we showcased our project and got some feedback. Dr. Ruppert mentioned that if a salamander moves along the side of the tunnel, the sensors may not detect it. His feedback showed us we were right to add more sensors. Also, if there are other animals, the sensor may think they are salamanders. So we tuned our ToF sensor to look for a salamander's height.</p>
+  <p>By counting the salamanders that go through, we can help the experts prove if the tunnels really work, and help save salamanders' lives. So remember: the Jefferson Salamander is endangered in Ontario, and our sensors can help keep them safe. Thank you!</p>
+</div>
+
+<div class="q">
+  <div class="t">Please practice your part out loud 3 times. Tick one box each time you practice.</div>
+  <div class="counts"><span class="numbox"></span><span class="numbox"></span><span class="numbox"></span></div>
+</div>
+
+<h2 class="break">Part 2 &mdash; Design My Foam Board</h2>
+
+<div class="intro" style="margin-top:8px">
+  Each team member will hold up a <b>foam board</b> to help with our Robot Design presentation. This week, think
+  about what you want to put on yours, then <b>draw a design</b>. You don&rsquo;t have to write a lot.
+  Bring your design to our next meeting.
+</div>
+
+<div class="q">
+  <div class="t">Ideas for what could go on your foam board:</div>
+  <ul class="ideas">
+    <li>My mission name and points</li>
+    <li>A drawing of my attachment</li>
+    <li>A photo of the robot</li>
+    <li>What my attachment does</li>
+    <li>A problem we fixed</li>
+    <li>Your own idea</li>
+  </ul>
+</div>
+
+<div class="q">
+  <div class="t">1. Draw your design for your foam board.</div>
+  <div class="hint">Hint: Pretend the box is your foam board. Where do the title, pictures and words go? Boxes and labels are enough.</div>
+  <div class="sketch" style="height:620px"></div>
+</div>
+
+</body>
+</html>

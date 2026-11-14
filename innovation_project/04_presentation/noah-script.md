@@ -1,24 +1,23 @@
-# Noah · Create (tunnel model)
-
-Speaker 3 of 6 · Not written yet
-
-## My script
+# Noah · Create (M5Stack, sensors, code)
 
 **Hook**
 
-**Say, then show**
+How does a tiny computer know a salamander is there?
+
+**Body**
+
+The ToF sensor is a laser that looks down and measures the distance to the floor, and it sends that number to the M5Stack.
+
+We programmed a rule using IF and THEN.
+
+IF something passes under the sensor and the distance gets shorter, THEN the screen says "Salamander found!"
+
+We 3D printed a model salamander to test it.
+
+As the salamander passes under the sensor, the distance number goes down and the screen shows "Salamander found!"
+
+It also counts every salamander that passes.
 
 **Hand-off**
 
-Hands off to Victor (Create).
-
-## Show
-
-To be decided.
-
-## Practice
-
-- Read it out loud 3 times.
-- Time it: 45 to 60 seconds.
-- Pause for 1 to 2 seconds after the hook.
-- Look at the next speaker when you say their name.
+Next, Wilson will tell you how we tested it and made it better.

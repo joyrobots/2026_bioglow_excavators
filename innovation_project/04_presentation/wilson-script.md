@@ -1,24 +1,21 @@
 # Wilson · Iterate
 
-Speaker 5 of 6 · Not written yet
-
-## My script
-
 **Hook**
 
-**Say, then show**
+What happens when your invention does not work the first time?
+
+**Body**
+
+That happened to us. At first, we thought of using a motion sensor, but it looks for body heat and salamanders are cold-blooded, so it would not work.
+
+So we chose the ToF sensor, but our 3D printed salamander was a bit short and the sensor detected nothing.
+
+It also only detects a small spot, so we added more sensors.
+
+After many tests, we were able to consistently find the salamander.
+
+We also improved our design after an expert at TRCA, Dr. Ruppert, told us the tunnel must stay dark, cool and damp. Our sensors work in the dark, so they can add to what his cameras see.
 
 **Hand-off**
 
-Hands off to Kayden (Communicate).
-
-## Show
-
-To be decided.
-
-## Practice
-
-- Read it out loud 3 times.
-- Time it: 45 to 60 seconds.
-- Pause for 1 to 2 seconds after the hook.
-- Look at the next speaker when you say their name.
+Now off to Kayden to tell you how we shared our project.

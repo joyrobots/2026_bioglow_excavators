@@ -1,24 +1,23 @@
-# Victor · Create (M5Stack, sensors, code)
-
-Speaker 4 of 6 · Not written yet
-
-## My script
+# Victor · Create (tunnel model)
 
 **Hook**
 
-**Say, then show**
+Imagine a salamander tunnel small enough to fit on a table.
+
+**Body**
+
+We built a tunnel replica.
+
+We took the sketch and turned it into a real model.
+
+We used a wooden base and top, a 3D printed tunnel, and clear acrylic sheets for the sides, so you can see inside.
+
+We decorated the top to look like the road.
+
+Together as a team, we screwed the bolts in to hold it together.
+
+Our tunnel is pretty accurate to the real one. The road and the tunnel match.
 
 **Hand-off**
 
-Hands off to Wilson (Iterate).
-
-## Show
-
-To be decided.
-
-## Practice
-
-- Read it out loud 3 times.
-- Time it: 45 to 60 seconds.
-- Pause for 1 to 2 seconds after the hook.
-- Look at the next speaker when you say their name.
+Now Noah will tell you about the M5Stack and sensors.

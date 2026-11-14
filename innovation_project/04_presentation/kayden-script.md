@@ -1,24 +1,21 @@
 # Kayden · Communicate
 
-Speaker 6 of 6 · Not written yet
-
-## My script
-
 **Hook**
 
-**Say, then show**
+We shared our project with two experts at TRCA, Dr. Jonathan Ruppert and Dr. David Lawrie.
 
-**Hand-off**
+**Body**
 
-Ending to be decided: full circle back to Jayden's hook, or hand off to Robot Design.
+We sent them letters with our questions, then we showcased our project and got some feedback.
 
-## Show
+Dr. Ruppert mentioned that if a salamander moves along the side of the tunnel, the sensors may not detect it.
 
-To be decided.
+His feedback showed us we were right to add more sensors.
 
-## Practice
+Also, if there are other animals, the sensor may think they are salamanders. So we tuned our ToF sensor to look for a salamander's height.
 
-- Read it out loud 3 times.
-- Time it: 45 to 60 seconds.
-- Pause for 1 to 2 seconds after the hook.
-- Look at the next speaker when you say their name.
+**Closing**
+
+By counting the salamanders that go through, we can help the experts prove if the tunnels really work, and help save salamanders' lives.
+
+So remember: the Jefferson Salamander is endangered in Ontario, and our sensors can help keep them safe. Thank you!
