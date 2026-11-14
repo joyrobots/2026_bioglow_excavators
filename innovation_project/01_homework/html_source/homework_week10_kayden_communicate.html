@@ -11,7 +11,6 @@
   .brand { font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
   h1 { font-size: 20pt; margin: 0 0 2px 0; color: var(--accent); }
   .sub { font-size: 11pt; color: var(--muted); margin: 0 0 5px 0; }
-  .sub b { color: var(--accent); }
   .meta { display: flex; gap: 18px; margin: 4px 0 8px 0; font-weight: 600; }
   .meta span { flex: 1; border-bottom: 1.5px solid var(--ink); padding-bottom: 2px; }
   .meta i { flex: 1; }
@@ -43,6 +42,8 @@
   .script .lbl { font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 5px 0 0 0; }
   .script p { margin: 14px 0 0 0; font-size: 15pt; line-height: 1.45; }
   .script p:first-child { margin-top: 2px; }
+  .script .part { font-size: 15pt; font-weight: 700; color: var(--accent); margin: 2px 0 0 0; }
+  .script .part + p { margin-top: 6px; }
   .eg { font-size: 10pt; color: var(--muted); margin: 3px 0 0 0; }
   .sketch { border: 1.5px dashed var(--line); border-radius: 6px; height: 470px; margin-top: 4px; }
   .ideas { margin: 4px 0 0 0; padding-left: 20px; columns: 2; column-gap: 30px; }
@@ -54,7 +55,6 @@
 
 <div class="brand">JoyRobots Excavators &nbsp;|&nbsp; Team #65536 &nbsp;|&nbsp; Week 10 Homework</div>
 <h1>My Script - Kayden</h1>
-<p class="sub">Innovation Project &nbsp;&middot;&nbsp; My part: <b>Communicate</b></p>
 
 <div class="meta"><span>Date: </span><i></i></div>
 
@@ -66,6 +66,7 @@
 <h2>Part 1 &mdash; Practice My Part</h2>
 
 <div class="script">
+<div class="part">Communicate</div>
   <p>We shared our project with two experts at TRCA, Dr. Jonathan Ruppert and Dr. David Lawrie.</p>
   <p>We sent them letters with our questions, then we showcased our project and got some feedback. Dr. Ruppert mentioned that if a salamander moves along the side of the tunnel, the sensors may not detect it. His feedback showed us we were right to add more sensors. Also, if there are other animals, the sensor may think they are salamanders. So we tuned our ToF sensor to look for a salamander's height.</p>
   <p>By counting the salamanders that go through, we can help the experts prove if the tunnels really work, and help save salamanders' lives. So remember: the Jefferson Salamander is endangered in Ontario, and our sensors can help keep them safe. Thank you!</p>
