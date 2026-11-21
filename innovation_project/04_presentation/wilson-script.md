@@ -14,7 +14,7 @@ It also only detects a small spot, so we added more sensors.
 
 After many tests, we were able to consistently find the salamander.
 
-We also improved our design after an expert at TRCA, Dr. Ruppert, told us the tunnel must stay dark, cool and damp. Our sensors work in the dark, so they can add to what his cameras see.
+We also improved our design after an expert at TRCA, Dr. Ruppert, told us the tunnel are dark. Our sensors work in the dark, so they can detect the Jefferson Salamanders in the dark
 
 **Hand-off**
 
